@@ -3,15 +3,15 @@
 body {
   margin: 0;
   color: #fff;
-  background: #ffffff;
+  background: #d6d0d0;
 }
 
 /* 🔹 Navbar */
 header {
   font-family: 'Anakotmai-light', sans-serif;
-  background: rgba(91, 136, 54, 0.4); /* ปรับค่า alpha 0.4 = โปร่งใส */
-  color: white;
-  padding: 15px 20px;
+  background: rgba(65, 107, 17, 0.4); /* ปรับค่า alpha 0.4 = โปร่งใส */
+  color: rgb(1, 58, 27);
+  padding: 10px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -32,7 +32,7 @@ nav {
   gap: 20px;
 }
 .nav-links a {
-  color: rgb(255, 255, 255);
+  color: rgb(4, 51, 6);
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
@@ -47,7 +47,7 @@ nav {
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
-  z-index: 1100; /* ให้ทับเมนู */
+  z-index: 1100; 
 }
 
 .hamburger div {
@@ -105,9 +105,9 @@ nav {
 /* 🔹 Hero Banner */
 .hero {
   background: 
-    linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)),
+    linear-gradient(to right, rgba(24, 47, 122, 0.767), rgba(202, 28, 194, 0.3)),
     url("images/PTS.1\ Background.png") center/cover fixed;
-  color: rgb(255, 255, 255);
+  color: rgb(251, 255, 0);
   height: 55vh;
   display: flex;
   justify-content: center; 
@@ -136,7 +136,7 @@ nav {
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin: 0;
   background: rgba(0,0,0,0.4);
   padding: 10px 20px;
@@ -175,25 +175,36 @@ h3 {
 p {
   font-family: 'Anakotmai-light', sans-serif;
   line-height: 1.6;
-  color: #000000;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-h5 {
-  font-family: 'Anakotmai-light', sans-serif;
-  line-height: 1.6;
   color: #ffffff;
   max-width: 800px;
   margin: auto;
   text-align: center;
 }
+h5 {
+  font-family: 'Anakotmai-Medium', sans-serif;
+  font-size: 1.2rem;   
+  line-height: 1.6;    
+  color: #000000;       
+  max-width: 600px;      
+  margin: 20px auto;       
+}
+h6 {
+  font-family: 'Anakotmai-light', sans-serif;
+  font-size: 1.5rem;       /* ขนาดเล็กลง */
+  line-height: 1.6;        /* ระยะบรรทัด */
+  color: #000000;           /* สีตัวอักษร */
+  max-width: 600px;         /* กำหนดความกว้าง */
+  margin: 20px auto;        /* จัดกึ่งกลาง + เว้นระยะบนล่าง */
+  text-align: center;       /* อยู่ตรงกลาง */
+  letter-spacing: 0.5px;    /* เพิ่มความโปร่งเล็กน้อย */
+}
+
 ul {
   font-family: 'Anakotmai-light', sans-serif;
   line-height: 1.6;
   color: #000000;
   max-width: 800px;
-
+  font-size: 1.5rem;
 }
 
 /* 🔹 Members Grid */
@@ -305,11 +316,11 @@ h1, h2, h3, nav, .logo {
 }
 
 .card {
-  background: rgba(43, 70, 28, 0.9); /* สีขาวโปร่งเล็กน้อย */
-  color: #ffffff;
+  background: rgba(89, 129, 67, 0.9); /* สีขาวโปร่งเล็กน้อย */
+  color: #fffbfb;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.753);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
