@@ -374,3 +374,7 @@ h1, h2, h3, nav, .logo {
   font-family: 'Anakotmai-light';
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
