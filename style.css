@@ -228,6 +228,7 @@ ul {
 
 /* 🔹 Footer */
 footer {
+  font-family: 'Anakotmai-light', sans-serif;
   text-align: center;
   padding: 20px;
   background: #111;
@@ -372,3 +373,4 @@ h1, h2, h3, nav, .logo {
   margin: 0;
   font-family: 'Anakotmai-light';
 }
+
