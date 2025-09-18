@@ -53,7 +53,7 @@ nav {
 .hamburger div {
   width: 25px;
   height: 3px;
-  background: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
   transition: all 0.4s ease;
 }
 
@@ -72,7 +72,8 @@ nav {
 .nav-links.mobile {
   display: flex;
   flex-direction: column;
-  background: rgba(0,0,0,0.85);
+  background: rgba(132, 231, 107, 0.432);
+  font-family: 'Anakotmai-Medium';
   text-align: center;
   padding: 10px;
   border-radius: 10px;
@@ -391,3 +392,4 @@ h1, h2, h3, nav, .logo {
   margin-bottom: 20px;
   color: #000000;
 }
+
