@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติผู้สมัคร - Pioneer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { partyBlue: '#1e3a8a', partyYellow: '#facc15' },
+                    fontFamily: { sans: ['Anakotmai', 'sans-serif'], dancing: ['DancingScript', 'cursive'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @font-face { font-family: 'Anakotmai'; src: url('Fonts/Anakotmai-Light.ttf') format('truetype'); font-weight: 300; }
+        @font-face { font-family: 'Anakotmai'; src: url('Fonts/Anakotmai-Medium.ttf') format('truetype'); font-weight: 400; }
+        @font-face { font-family: 'Anakotmai'; src: url('Fonts/Anakotmai-Bold.ttf') format('truetype'); font-weight: 700; }
+        @font-face { font-family: 'DancingScript'; src: url('Fonts/DancingScript-VariableFont_wght.ttf') format('truetype'); font-weight: 400 700; }
+        
+        body { font-family: 'Anakotmai', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 flex flex-col min-h-screen">
+
+    <nav class="border-b border-gray-200 py-2 md:py-3 bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 md:gap-3 hover:opacity-80 transition duration-200">
+                <img src="images/Pionner logo 2.png" alt="Pioneer Logo" class="h-12 md:h-16 w-auto object-contain">
+                <span class="text-xl md:text-2xl font-bold text-partyBlue">Pioneer</span>
+            </a>
+            <ul class="flex space-x-4 md:space-x-6 items-center">
+                <li><a href="index.html" class="text-sm md:text-base text-gray-600 hover:text-partyBlue font-medium">หน้าหลัก</a></li>
+                <li><a href="policy.html" class="bg-partyBlue text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-blue-800 transition">อ่านนโยบาย</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-8 md:py-16 bg-gray-50 px-4">
+        <div class="max-w-4xl mx-auto">
+            
+            <a href="index.html#candidates" class="inline-flex items-center text-sm md:text-base text-gray-500 hover:text-partyBlue mb-6 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                กลับไปหน้ารวมผู้สมัคร
+            </a>
+
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden flex flex-col md:flex-row">
+                
+                <div class="w-full md:w-5/12 bg-gray-200 relative aspect-[4/5] md:aspect-auto">
+                    <img id="p-img" src="" alt="" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 md:top-6 md:left-6 bg-partyYellow text-black font-black px-4 py-2 rounded-xl shadow-lg text-xl md:text-2xl">
+                        #<span id="p-id"></span>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-7/12 p-6 md:p-12 flex flex-col justify-center">
+                    <div class="mb-6 md:mb-8">
+                        <p class="text-[10px] md:text-xs font-bold text-blue-600 uppercase tracking-[0.2em] mb-2">Member of Pioneer Party</p>
+                        <h1 id="p-name" class="text-3xl md:text-4xl font-bold text-partyBlue mb-2 leading-tight"></h1>
+                        <p id="p-role" class="text-lg md:text-xl font-bold text-orange-500"></p>
+                    </div>
+
+                    <div class="space-y-6 md:space-y-8">
+                        <div class="grid grid-cols-2 gap-6 py-6 border-y border-gray-100">
+                            <div>
+                                <span class="block text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1">อายุ</span>
+                                <span id="p-age" class="text-lg md:text-xl font-bold text-gray-800"></span>
+                            </div>
+                            <div>
+                                <span class="block text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1">ชั้นเรียน</span>
+                                <span id="p-class" class="text-lg md:text-xl font-bold text-gray-800"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="block text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3">คติประจำใจ</span>
+                            <div class="bg-blue-50 border-l-4 border-partyBlue p-4 md:p-6 rounded-r-2xl">
+                                <p id="p-quote" class="text-partyBlue italic text-lg md:text-xl font-medium leading-relaxed"></p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="block text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3">วิสัยทัศน์ / หน้าที่รับผิดชอบ</span>
+                            <p id="p-vision" class="text-gray-600 text-sm md:text-base leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-white py-12 text-center border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl text-partyBlue font-dancing leading-tight">
+                Follow us & get to know Pioneer Party<br>
+                <span class="text-partyYellow font-bold mt-2 inline-block text-xl md:text-2xl">Because every voice matters</span>
+            </h2>
+        </div>
+    </footer>
+
+    <script>
+        const candidates = [
+            { id: 1, name: "นายประธาน มุ่งมั่น", role: "ผู้สมัครประธานนักเรียน", age: 0, class: "ม.4/-", quote: "ผู้นำที่ดี คือผู้รับใช้ที่ยอดเยี่ยม", vision: "มุ่งเน้นการสร้างโรงเรียนที่มีความสุข รับฟังทุกปัญหา และแก้ไขอย่างเป็นระบบ เพื่อประโยชน์สูงสุดของนักเรียนทุกคน", img: "https://via.placeholder.com/600x800/1e3a8a/FFFFFF?text=PRESIDENT" },
+            { id: 2, name: "กรรมการ คนที่ 1", role: "ฝ่ายวิชาการ", age: 0, class: "ม.4/-", quote: "ความรู้คู่คุณธรรม", vision: "ส่งเสริมกิจกรรมทางวิชาการ และโครงการเพื่อนช่วยเพื่อน", img: "https://via.placeholder.com/600x800/cccccc/333333?text=Member+1" },
+            { id: 3, name: "กรรมการ คนที่ 2", role: "ฝ่ายกิจกรรม", age: 0, class: "ม.4/-", quote: "สนุก สุข สร้างสรรค์", vision: "จัดกิจกรรมที่หลากหลาย ตอบโจทย์ความสนใจของนักเรียนทุกกลุ่ม", img: "https://via.placeholder.com/600x800/cccccc/333333?text=Member+2" },
+            { id: 4, name: "กรรมการ คนที่ 3", role: "เหรัญญิก", age: 0, class: "ม.4/-", quote: "โปร่งใส ตรวจสอบได้", vision: "ดูแลงบประมาณของสภานักเรียนให้เกิดความคุ้มค่าสูงสุด", img: "https://via.placeholder.com/600x800/cccccc/333333?text=Member+3" },
+            { id: 5, name: "กรรมการ คนที่ 4", role: "ประชาสัมพันธ์", age: 0, class: "ม.4/-", quote: "สื่อสารฉับไว เข้าใจง่าย", vision: "เป็นกระบอกเสียงให้นักเรียน และแจ้งข่าวสารอย่างรวดเร็ว", img: "https://via.placeholder.com/600x800/cccccc/333333?text=Member+4" },
+            { id: 6, name: "กรรมการ คนที่ 5", role: "ฝ่ายอาคาร", age: 0, class:"ม.4/-" , quote:"โรงเรียนน่าอยู่" , vision:"ดูแลความสะอาดและความเรียบร้อยของสถานที่ในโรงเรียน" , img:"https://via.placeholder.com/600x800/cccccc/FFFFFF?text=Member+5" },
+            { id: 7, name: "กรรมการ คนที่ 6", role: "สารวัตรนักเรียน", age: 0, class:"ม.4/-" , quote:"ระเบียบวินัยคือรากฐาน" , vision:"ดูแลความเรียบร้อยและกฎระเบียบด้วยความเข้าใจ" , img:"https://via.placeholder.com/600x800/cccccc/FFFFFF?text=Member+6"},
+            { id: 8, name: "กรรมการ คนที่ 7", role: "ฝ่ายประสานงาน", age: 0, class: "ม.4/-", quote: "เชื่อมใจ ประสานงาน", vision: "ประสานงานระหว่างนักเรียน ครู และบุคลากร", img: "https://via.placeholder.com/600x800/cccccc/333333?text=Member+7" },
+            { id: 9, name: "กรรมการ คนที่ 8", role: "เลขานุการ", age: 0, class: "ม.4/-", quote: "จดจำทุกรายละเอียด", vision: "บันทึกการประชุมและดูแลเอกสารสำคัญของสภา", img: "https://via.placeholder.com/600x800/cccccc/333333?text=Member+8" },
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const candidateId = parseInt(urlParams.get('id'));
+        const person = candidates.find(c => c.id === candidateId);
+
+        if (person) {
+            document.getElementById('p-img').src = person.img;
+            document.getElementById('p-id').innerText = person.id;
+            document.getElementById('p-name').innerText = person.name;
+            document.getElementById('p-role').innerText = person.role;
+            document.getElementById('p-age').innerText = person.age + " ปี";
+            document.getElementById('p-class').innerText = person.class;
+            document.getElementById('p-quote').innerText = `"${person.quote}"`;
+            document.getElementById('p-vision').innerText = person.vision;
+        } else {
+            document.querySelector('main').innerHTML = `
+                <div class="text-center py-20">
+                    <h2 class="text-2xl font-bold text-gray-400 mb-4">ไม่พบข้อมูลผู้สมัคร</h2>
+                    <a href="index.html#candidates" class="text-partyBlue hover:underline font-bold">กลับไปเลือกผู้สมัคร</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
