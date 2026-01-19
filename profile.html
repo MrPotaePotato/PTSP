@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติผู้สมัคร - พรรค Pioneer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        partyBlue: '#1e3a8a',
+                        partyYellow: '#facc15',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-partyBlue shadow-md w-full text-white py-4">
+        <div class="max-w-4xl mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 hover:text-partyYellow transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                กลับหน้าหลัก
+            </a>
+            <div class="font-bold">พรรค Pioneer</div>
+        </div>
+    </nav>
+
+    <main class="py-12 max-w-4xl mx-auto px-4">
+        
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+            
+            <div class="md:w-2/5 bg-gray-200 relative h-96 md:h-auto">
+                <img id="p-img" src="" alt="" class="w-full h-full object-cover object-top">
+                <div class="absolute top-4 left-4 bg-partyYellow text-blue-900 font-bold px-4 py-2 rounded-lg text-xl shadow-md">
+                    เบอร์ <span id="p-id"></span>
+                </div>
+            </div>
+
+            <div class="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                <h2 class="text-sm font-bold text-partyYellow tracking-widest uppercase mb-2">ข้อมูลผู้สมัคร</h2>
+                <h1 id="p-name" class="text-3xl md:text-4xl font-bold text-partyBlue mb-2"></h1>
+                <p id="p-role" class="text-xl text-gray-500 font-medium mb-6 border-b pb-4"></p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <span class="font-bold w-24 text-gray-400">อายุ:</span>
+                        <span id="p-age" class="text-lg font-semibold"></span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="font-bold w-24 text-gray-400">ชั้นเรียน:</span>
+                        <span id="p-class" class="text-lg font-semibold"></span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="font-bold w-24 text-gray-400">คติประจำใจ:</span>
+                        <span id="p-quote" class="text-lg italic text-partyBlue bg-blue-50 px-3 py-1 rounded-md"></span>
+                    </div>
+                    <div class="mt-6 pt-6 border-t">
+                        <h3 class="font-bold text-gray-800 mb-2">ทำไมถึงอยากเป็นสภานักเรียน?</h3>
+                        <p id="p-vision" class="text-gray-600 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // *** สำคัญ: ข้อมูลต้องตรงกับ index.html ***
+        // ในการทำเว็บจริงๆ เราจะแยกไฟล์ data.js แต่ตอนนี้ใส่ไว้ในนี้เพื่อให้ง่ายต่อการ copy
+        const candidates = [
+            { 
+                id: 1, 
+                name: "ประธาน ", 
+                role: "ประธานนักเรียน", 
+                age: 17,
+                class: "ม.4/",
+                quote: "ฝันให้ไกล ไปให้ถึง",
+                vision: "ผมอยากเห็นโรงเรียนของเราเป็นพื้นที่ปลอดภัย และเปิดกว้างสำหรับความคิดสร้างสรรค์ของทุกคนครับ",
+                img: "https://via.placeholder.com/400x500/1e3a8a/FFFFFF?text=PRESIDENT" 
+            },
+            { 
+                id: 2, 
+                name: "กรรมการ คนที่ 1", 
+                role: "ฝ่าย...", 
+                age: 16,
+                class: "ม.4/",
+                quote: "ความรู้คู่คุณธรรม",
+                vision: "จะจัดติวเพื่อนช่วยเพื่อน ให้ทุกคนสอบผ่านไปด้วยกัน",
+                img: "https://via.placeholder.com/400x500/cccccc/333333?text=Member+1" 
+            },
+            // ... (ถ้ามีเวลา ให้ใส่ข้อมูลคนอื่นๆ จนครบ 9 คน ให้ id ตรงกันกับหน้าแรกนะครับ) ...
+            // เพื่อทดสอบ ผมใส่แค่ 2 คนก่อน ถ้ากดคนอื่นจะขึ้น Default
+        ];
+
+        // 1. ดึงค่า ID จาก URL (เช่น profile.html?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const candidateId = parseInt(urlParams.get('id'));
+
+        // 2. ค้นหาข้อมูลคนนั้นจาก Array
+        const person = candidates.find(c => c.id === candidateId);
+
+        // 3. เอาข้อมูลไปใส่ในหน้าเว็บ
+        if (person) {
+            document.getElementById('p-img').src = person.img;
+            document.getElementById('p-id').innerText = person.id;
+            document.getElementById('p-name').innerText = person.name;
+            document.getElementById('p-role').innerText = person.role;
+            
+            // ข้อมูลเสริม
+            document.getElementById('p-age').innerText = person.age + " ปี";
+            document.getElementById('p-class').innerText = person.class;
+            document.getElementById('p-quote').innerText = `"${person.quote}"`;
+            document.getElementById('p-vision').innerText = person.vision;
+        } else {
+            // กรณีหาไม่เจอ (เช่น ใส่ id มั่ว)
+            document.body.innerHTML = "<div class='text-center py-20 text-2xl'>ไม่พบข้อมูลผู้สมัครนี้ <a href='index.html' class='text-blue-500 underline'>กลับหน้าหลัก</a></div>";
+        }
+    </script>
+</body>
+</html>
