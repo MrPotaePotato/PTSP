@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นโยบายพรรค - Pioneer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { partyBlue: '#1e3a8a', partyYellow: '#facc15' },
+                    fontFamily: { sans: ['Anakotmai', 'sans-serif'], dancing: ['DancingScript', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face { font-family: 'Anakotmai'; src: url('Fonts/Anakotmai-Light.ttf') format('truetype'); font-weight: 300; }
+        @font-face { font-family: 'Anakotmai'; src: url('Fonts/Anakotmai-Medium.ttf') format('truetype'); font-weight: 400; }
+        @font-face { font-family: 'Anakotmai'; src: url('Fonts/Anakotmai-Bold.ttf') format('truetype'); font-weight: 700; }
+        @font-face { font-family: 'DancingScript'; src: url('Fonts/DancingScript-VariableFont_wght.ttf') format('truetype'); font-weight: 400 700; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+    <nav class="border-b border-gray-200 py-3 bg-white sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 flex items-center justify-between md:justify-between relative">
+            
+            <button id="mobile-menu-btn" class="md:hidden text-partyBlue p-2 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div class="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 hover:opacity-80 transition duration-200">
+                    <img src="images/Pionner logo 2.png" alt="Pioneer Logo" class="h-12 md:h-16 w-auto object-contain">
+                    <span class="text-xl md:text-2xl font-bold text-partyBlue">Pioneer</span>
+                </a>
+            </div>
+
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li><a href="index.html" class="text-gray-600 hover:text-partyBlue font-medium">หน้าหลัก</a></li>
+                <li><a href="index.html#candidates" class="text-gray-600 hover:text-partyBlue font-medium">ผู้สมัคร</a></li>
+                <li><a href="policy.html" class="bg-partyBlue text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-blue-800 transition">อ่านนโยบาย</a></li>
+            </ul>
+
+            <div class="w-10 md:hidden"></div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg animate-fade-in-down">
+            <ul class="flex flex-col p-4 space-y-4 font-medium">
+                <li><a href="index.html" class="block text-gray-700 hover:text-partyBlue py-2 border-b border-gray-50">หน้าหลัก</a></li>
+                <li><a href="index.html#candidates" class="block text-gray-700 hover:text-partyBlue py-2 border-b border-gray-50">ผู้สมัคร</a></li>
+                <li><a href="policy.html" class="block text-partyBlue font-bold py-2">อ่านนโยบาย</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            // สลับสถานะการแสดงผลเมนู
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // ปิดเมนูเมื่อกดที่ลิงก์ (เผื่อเป็น Anchor Link หน้าเดียวกัน)
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+    <style>
+        /* เพิ่ม Animation เล็กน้อยตอนเปิดเมนู */
+        .animate-fade-in-down {
+            animation: fadeInDown 0.3s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <header class="py-12 md:py-16 text-center bg-gray-50 border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-5xl font-bold text-partyBlue mb-4">นโยบายของเรา</h1>
+            <p class="text-lg md:text-xl text-gray-600">"คิดจริง ทำจริง เพื่อสิ่งที่ดีกว่า"</p>
+        </div>
+    </header>
+
+    <section class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <h2 class="text-xl md:text-2xl font-bold text-center mb-8 md:text-partyBlue">📌 3 นโยบายหลักเร่งด่วน</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 border border-gray-200 rounded-xl shadow-sm">
+                <div class="text-3xl md:text-4xl mb-4">📢</div>
+                <h3 class="text-lg md:text-xl font-bold text-partyBlue mb-3">[ชื่อนโยบายที่ 1]</h3>
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed">รายละเอียดเนื้อหา...</p>
+            </div>
+            <div class="bg-white p-6 border border-gray-200 rounded-xl shadow-sm">
+                <div class="text-3xl md:text-4xl mb-4">⚖️</div>
+                <h3 class="text-lg md:text-xl font-bold text-partyBlue mb-3">[ชื่อนโยบายที่ 2]</h3>
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed">รายละเอียดเนื้อหา...</p>
+            </div>
+            <div class="bg-white p-6 border border-gray-200 rounded-xl shadow-sm">
+                <div class="text-3xl md:text-4xl mb-4">💡</div>
+                <h3 class="text-lg md:text-xl font-bold text-partyBlue mb-3">[ชื่อนโยบายที่ 3]</h3>
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed">รายละเอียดเนื้อหา...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-8 text-partyBlue">✨ นโยบายเพิ่มเติม</h2>
+            <div class="space-y-4">
+                <div class="flex items-start gap-3 md:gap-4 p-4 rounded-xl border border-gray-200">
+                    <span class="bg-partyBlue text-white w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full font-bold flex-shrink-0 text-xs md:text-sm">1</span>
+                    <div>
+                        <h4 class="font-bold text-base md:text-lg text-partyBlue leading-tight">ชื่อนโยบายเพิ่มเติม</h4>
+                        <p class="text-gray-700 text-sm md:text-base">คำอธิบายสั้นๆ ของนโยบายนี้</p>
+                    </div>
+                    
+                </div>
+                 <div class="flex items-start gap-3 md:gap-4 p-4 rounded-xl border border-gray-200">
+                    <span class="bg-partyBlue text-white w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full font-bold flex-shrink-0 text-xs md:text-sm">2</span>
+                    <div>
+                        <h4 class="font-bold text-base md:text-lg text-partyBlue leading-tight">ชื่อนโยบายเพิ่มเติม</h4>
+                        <p class="text-gray-700 text-sm md:text-base">คำอธิบายสั้นๆ ของนโยบายนี้</p>
+                    </div>
+                    
+                </div>
+                 <div class="flex items-start gap-3 md:gap-4 p-4 rounded-xl border border-gray-200">
+                    <span class="bg-partyBlue text-white w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full font-bold flex-shrink-0 text-xs md:text-sm">3</span>
+                    <div>
+                        <h4 class="font-bold text-base md:text-lg text-partyBlue leading-tight">ชื่อนโยบายเพิ่มเติม</h4>
+                        <p class="text-gray-700 text-sm md:text-base">คำอธิบายสั้นๆ ของนโยบายนี้</p>
+                    </div>
+                    
+                </div>
+                 <div class="flex items-start gap-3 md:gap-4 p-4 rounded-xl border border-gray-200">
+                    <span class="bg-partyBlue text-white w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full font-bold flex-shrink-0 text-xs md:text-sm">4</span>
+                    <div>
+                        <h4 class="font-bold text-base md:text-lg text-partyBlue leading-tight">ชื่อนโยบายเพิ่มเติม</h4>
+                        <p class="text-gray-700 text-sm md:text-base">คำอธิบายสั้นๆ ของนโยบายนี้</p>
+                    </div>
+                    
+                </div>
+                 <div class="flex items-start gap-3 md:gap-4 p-4 rounded-xl border border-gray-200">
+                    <span class="bg-partyBlue text-white w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full font-bold flex-shrink-0 text-xs md:text-sm">5</span>
+                    <div>
+                        <h4 class="font-bold text-base md:text-lg text-partyBlue leading-tight">ชื่อนโยบายเพิ่มเติม</h4>
+                        <p class="text-gray-700 text-sm md:text-base">คำอธิบายสั้นๆ ของนโยบายนี้</p>
+                    </div>
+                    
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-12 md:py-16 text-center border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl text-partyBlue font-dancing leading-relaxed mb-6">
+                Follow us & get to know Pioneer Party<br>
+                <span class="text-partyYellow font-bold mt-2 inline-block text-xl md:text-2xl italic">"Because every voice matters"</span>
+            </h2>
+
+            <div class="flex justify-center gap-6 md:gap-8 mb-8">
+                <a href="https://www.instagram.com/ใส่ชื่อไอจีตรงนี้" target="_blank" class="flex flex-col items-center group transition-transform hover:scale-110">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg mb-2">
+                        <svg class="w-7 h-7 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs md:text-sm font-bold text-gray-600 group-hover:text-partyBlue">Instagram</span>
+                </a>
+
+                <a href="https://www.tiktok.com/@ใส่ชื่อติ๊กต็อกตรงนี้" target="_blank" class="flex flex-col items-center group transition-transform hover:scale-110">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-black rounded-2xl flex items-center justify-center shadow-lg mb-2">
+                        <svg class="w-7 h-7 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.09-1.47-.88-.64-1.61-1.47-2.12-2.44v7.37c.01 3.87-3.21 7.42-7.13 7.07-3.32-.29-6.12-3.41-5.71-6.73.34-3.13 3.32-5.41 6.33-4.79.62.13 1.21.37 1.72.73V.02z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs md:text-sm font-bold text-gray-600 group-hover:text-partyBlue">TikTok</span>
+                </a>
+            </div>
+            
+            <p class="text-[10px] md:text-xs text-gray-400 font-sans uppercase tracking-widest">
+                Pioneer Party - เบอร์ 1 <br class="md:hidden"> | พรรคไพโอเนียร์ "เพราะทุกเสียงมีความหมาย"
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
