@@ -292,12 +292,27 @@
 
             // นับเวลา
             const timerTarget = document.getElementById("timer");
+            // ตั้งวันเวลาเป้าหมาย
             const targetDate = new Date("Nov 5, 2026 08:00:00").getTime();
-            setInterval(() => {
-                const diff = targetDate - new Date().getTime();
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                timerTarget.innerText = `See you in ${days} Days`;
-            }, 1000);
+
+            const updateTimer = setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            // คำนวณ วัน, ชม, นาที, วินาที
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // แสดงผล
+            if (diff > 0) {
+               timerTarget.innerText = `See you in ${days} d/ ${hours} h/ ${minutes} m/ ${seconds} s`;
+            } else {
+            // เมื่อถึงวันเลือกตั้งหรือเลยกำหนด
+            timerTarget.innerText = "Election Day is Here!";
+            clearInterval(updateTimer); // หยุดนับเมื่อถึงเวลา
+            }}, 1000);
         });
 
         // 3. Slider Logic
@@ -311,13 +326,31 @@
                 dot.style.backgroundColor = i === currentSlide ? '#facc15' : 'white';
             });
         }
-        function nextSlide() { currentSlide = (currentSlide + 1) % 3; updateSlide(); }
-        let slideInterval = setInterval(nextSlide, 3500);
-        function goToSlide(index) {
-            currentSlide = index; updateSlide();
-            clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 3500);
-        }
-        updateSlide();
+        // --- ส่วนที่ต้องแก้ไขใน Script เดิม ---
+
+        function updateSlide() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+        // แก้ไข Selector ตรงนี้ให้ตรงกับตำแหน่งปุ่ม Dots จริงๆ
+        const dots = document.querySelectorAll('.absolute.bottom-4 button'); 
+        dots.forEach((dot, i) => {
+        // ปรับให้จุดที่เลือกมีความชัดเจนขึ้น
+            if (i === currentSlide) {
+                dot.style.opacity = '1';
+                dot.style.backgroundColor = '#facc15'; // สีเหลือง Pioneer
+                dot.style.width = '24px'; // ยืดปุ่มที่เลือกให้เด่นขึ้น (Optional)
+                dot.style.borderRadius = '12px';
+            } else {
+                dot.style.opacity = '0.5';
+                dot.style.backgroundColor = 'white';
+                dot.style.width = '12px';
+                dot.style.borderRadius = '50%';
+            }
+        });
+}
+
+// เพิ่มการเรียกใช้ครั้งแรกเพื่อให้จุดเริ่มต้นแสดงผลถูกต้อง
+updateSlide();
     </script>
     
 </body>
